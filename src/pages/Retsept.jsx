@@ -32,7 +32,7 @@ function Retsept() {
     <>
       <main className="align-element">
         <div className="">
-          <div className="py-10">
+          <div className="mb-20">
             <h2 className="mb-5 text-2xl font-semibold">Recipe elements</h2>
             <div className="flex flex-col gap-10">
               <div className="carousel carousel-center space-x-4 rounded-box bg-neutral p-4 mr-5  justify-between">
@@ -40,7 +40,7 @@ function Retsept() {
                   dataId?.images?.map((img) => {
                     return (
                       <div key={img} className="carousel-item">
-                        <img src={img} className="w-96 h-80  object-cover " />
+                        <img src={img} className="w-96 h-60  object-cover " />
                       </div>
                     );
                   })}
