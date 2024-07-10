@@ -1,7 +1,9 @@
+import { Trash2 } from "lucide-react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeAmount, removeAll, removeProduct } from "../app/userSlice";
+import { FormInput } from "../components";
 import TrashIcon from "/public/trash.svg"
 function Cart() {
   const { calculator } = useSelector((state) => state.user);
@@ -31,8 +33,8 @@ function Cart() {
     return (
       <div className="align-element mt-10">
         <h1 className="text-4xl font-bold pb-4">Shopping Cart</h1>
-        <div className="grid sm:grid-cols-2 grid-cols-1">
-          <div className="overflow-x-auto">
+        <div className="grid lg:grid-cols-2 grid-cols-1">
+          <div className="">
             <table className="table">
               <thead>
                 <tr>
@@ -45,22 +47,19 @@ function Cart() {
               <tbody>
                 {calculator.products.map((product) => {
                   return (
-                    <tr key={product.id}>
+                    <tr key={product.id} >
                       <td>
-                        <div className="flex items-center gap-3">
-                          <div className="avatar">
-                            <div className="mask mask-squircle h-12 w-12">
-                              <img
-                                src={product?.images[0]}
-                                alt="Avatar Tailwind CSS Component"
-                              />
-                            </div>
+                        <div className="avatar">
+                          <div className="mask mask-squircle sm:h-12 w-10 sm:w-12 h-10">
+                            <img
+                              src={product?.images[0]}
+                              alt="Avatar Tailwind CSS Component"
+                            />
                           </div>
-                          <div></div>
                         </div>
                       </td>
                       <td>
-                        <div className="w-40 text-xl">{product.title}</div>
+                        <div className="sm:w-20 w-16  text-xl">{product.title}</div>
                         <div className="text-sm opacity-50">
                           {product.price} so'm
                         </div>
@@ -105,7 +104,7 @@ function Cart() {
                           onClick={() => dispatch(removeProduct(product.id))}
                           className="btn btn-ghost btn-xs"
                         >
-                        <img width={20} src={TrashIcon} alt="trash icon" />
+                          <Trash2 />
                         </button>
                       </th>
                     </tr>
@@ -114,15 +113,11 @@ function Cart() {
               </tbody>
             </table>
           </div>
-          <div className="sm:w-96 w-70 sm:ml-40 ml-0">
+          <div className="lg:mt-1 mt-10 mx-5 md:mr-10">
             <h3 className="text-xl">Order Summary</h3>
-            <div className="bg-teal-100 rounded-md gap-10 text-center py-2">
-              <input
-                type="text"
-                className="bg-teal-100 h-full mr-5"
-                placeholder="Enter promo code..."
-              />
-              <button className="bg-indigo-950 btn text-white">Apply</button>
+            <div className=" flex items-center gap-5">
+              <FormInput placeholder="enter promocode" />
+              <button className="btn mt-4 btn-primary">Apply</button>
             </div>
             <div>
               <div className="flex justify-between px-2 items-center py-2 mt-5 border-y-2 border-indigo-500">
