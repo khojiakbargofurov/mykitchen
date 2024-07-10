@@ -12,8 +12,8 @@ function TodoList({ data }) {
           <div className="grid gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center ">
             {
               data.map((todo) => (
-                <div key={todo.id} className="card bg-base-100 max-w-96 shadow-xl sm:h-[500px] h-[520px]">
-                  <img src={todo?.images[0]} alt="image" className="object-cover w-96 h-60" />
+                <div key={todo.id} className="card bg-base-100 max-w-96 shadow-xl sm:h-[550px] h-[50px] ">
+                  <img src={todo?.images[0]} alt="image" className="object-cover w-96 h-60 rounded-2xl" />
                   <div className="card-body">
                     <h2 className="card-title capitalize font-bold">Name: {todo.title}</h2>
                     <p className="line-clamp-6"><span className="font-semibold">Description:</span> {todo.description}</p>

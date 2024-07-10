@@ -96,15 +96,15 @@ function Create() {
       <div className="grid w-full justify-center">
         <div className="card bg-base-100 sm:w-96 w-80 shadow-xl p-8">
           <Form method="post" className="flex flex-col gap-5">
-            <h2 className="text-3xl font-semibold">New Todo</h2>
-            <FormInput name="title" type="text" label="Todo Title" placeholder="Enter your meal name" />
+            <h2 className="text-3xl font-semibold">New Resipt</h2>
+            <FormInput name="title" type="text" label="Meal name" placeholder="Enter your meal name" />
 
-            <FormInput name="time" type="number" label="Meal preparation time" min="1" max="3600" placeholder="Enter Meal preparation time" />
+            <FormInput name="time" type="number" label="Meal preparation time (in minutes)" min="1" max="3600" placeholder="Enter Meal preparation time" />
 
-            <FormInput name="price" type="number" label="Price" placeholder="Enter meal's price" min="1" />
+            <FormInput name="price" type="number" label="Price (in sum)" placeholder="Enter meal's price " min="1" />
 
             <div className="max-w-xs flex flex-col">
-              <label className="label-text capitalize mb-2">Nation:</label>
+              <label className="label-text capitalize mb-2">National Meal:</label>
               <select name="nation" className="select select-bordered w-full">
                 <option>Uzbek</option>
                 <option>Turkish</option>
