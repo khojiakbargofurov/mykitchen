@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.2.5",
     "apexcharts": "^3.50.0",
     "firebase": "^10.12.2",
+    "lucide-react": "^0.407.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",

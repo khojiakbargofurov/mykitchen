@@ -3,7 +3,11 @@ import { useCollection } from "../hooks/userCollection";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData, useParams } from "react-router-dom";
 import { addProduct } from "../app/userSlice";
+
 import KitchenIcon from "/public/kitchen.svg"
+import { BookType, CircleDollarSign, Clock, NotebookText, ShoppingBasket } from "lucide-react";
+import { toast } from "react-hot-toast";
+
 function Retsept() {
   const params = useParams();
   const { user } = useSelector((state) => state.user);
@@ -25,7 +29,7 @@ function Retsept() {
       ...dataId,
       amount: productAmount,
     };
-
+    toast.success("Add Retcept ")
     dispatch(addProduct(newProdact));
   };
   return (
@@ -50,14 +54,16 @@ function Retsept() {
                   <img src={KitchenIcon} alt="kitchen icon" />Meal Name: {dataId?.title}
                 </h2>
                 <div className="mb-5 flex items-start gap-2">
-                  <span className="font-semibold">Ingrediens: </span>
+                  <span className="font-semibold flex gap-2">
+                    <ShoppingBasket />
+                    Ingrediens: </span>
                   <ul className="flex flex-wrap gap-2">
                     {dataId &&
                       dataId?.Ingredients?.map((Ingredient) => {
                         return (
                           <li key={Ingredient}>
-                            <div className="badge badge-neutral">
-                              {Ingredient}
+                            <div className="badge badge-ghost">
+                              {Ingredient},
                             </div>
                           </li>
                         );
@@ -65,7 +71,8 @@ function Retsept() {
                   </ul>
                 </div>
                 <div className="mb-5">
-                  <span className="font-semibold">
+                  <span className="font-semibold flex gap-2 items-center">
+                    <Clock />
                     Cooking time:
                     <span className="ml-2 font-normal">
                       {dataId?.time} minutes
@@ -73,19 +80,18 @@ function Retsept() {
                   </span>
                 </div>
                 <div className="mb-5">
-                  <span className="font-semibold">
+                  <span className="font-semibold flex gap-2">
+                    <CircleDollarSign />
                     Prise:
                     <span className="ml-2 font-normal">{dataId?.price} so'm</span>
                   </span>
                 </div>
                 <div className="flex gap-2">
-                  <h3 className="mb-2 font-semibold">Nation:</h3>
+                  <h3 className="mb-2 font-semibold flex gap-2"><BookType /> Nation:</h3>
                   <p className="mb-5">{dataId?.nation}</p>
                 </div>
-                <div className="flex gap-5 items-start">
-                  <h3 className="mb-2 text-xl font-semibold">Method:</h3>
-                  <p className="mb-5">{dataId?.Method}</p>
-                </div>
+                <h3 className="mb-2 text-xl font-semibold flex gap-2 items-center"><NotebookText />Method:</h3>
+                <p className="mb-5 ">{dataId?.description}</p>
                 <div className="sm:flex bleck items-center w-full justify-between">
                   <div className="flex items-center gap-2 sm:mb-0 mb-10">
                     <button
@@ -102,11 +108,23 @@ function Retsept() {
                     >
                       -
                     </button>
-                    <button onClick={addToBag} className="btn btn-primary">
-                      ad to bag
+                    <button onClick={addToBag} className="btn btn-seconda">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      Add to bag
                     </button>
                   </div>
-                  <a className="btn btn-secondary ml-auto" href="/">
+                  <a className="btn btn-primary mr-5" href="/">
                     Back
                   </a>
                 </div>
