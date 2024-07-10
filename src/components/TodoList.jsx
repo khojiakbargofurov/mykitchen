@@ -7,7 +7,7 @@ function TodoList({ data }) {
   console.log(data);
   return (
     <div>
-      <div className="align-element px-5 mb-24 mt-3">
+      <div className="align-element px-5 mb-24 mt-8">
         {data.length > 0 ? (
           <div className="grid gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center ">
             {

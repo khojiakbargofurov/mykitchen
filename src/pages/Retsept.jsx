@@ -33,9 +33,9 @@ function Retsept() {
       <main className="align-element">
         <div className="">
           <div className="mb-20">
-            <h2 className="mb-5 text-2xl font-semibold">Recipe elements</h2>
+            <h2 className="my-5 text-2xl font-bold">Recipe details</h2>
             <div className="flex flex-col gap-10">
-              <div className="carousel carousel-center space-x-4 rounded-box bg-neutral p-4 mr-5  justify-between">
+              <div className="carousel carousel-center space-x-4 rounded-box h-[272px] max-w-6xl bg-neutral p-4 mr-5 justify-between">
                 {dataId &&
                   dataId?.images?.map((img) => {
                     return (
@@ -46,7 +46,9 @@ function Retsept() {
                   })}
               </div>
               <div>
-                <h2 className="mb-5 text-2xl font-semibold">{dataId?.title}</h2>
+                <h2 className="mb-5 text-2xl font-bold capitalize flex gap-2">
+                  <img src="/public/kitchen.svg" alt="kitchen icon" />Meal Name: {dataId?.title}
+                </h2>
                 <div className="mb-5 flex items-start gap-2">
                   <span className="font-semibold">Ingrediens: </span>
                   <ul className="flex flex-wrap gap-2">
@@ -76,7 +78,7 @@ function Retsept() {
                     <span className="ml-2 font-normal">{dataId?.price} so'm</span>
                   </span>
                 </div>
-                <div className="flex gap-5 items-start">
+                <div className="flex gap-2">
                   <h3 className="mb-2 font-semibold">Nation:</h3>
                   <p className="mb-5">{dataId?.nation}</p>
                 </div>
