@@ -3,7 +3,7 @@ import { useCollection } from "../hooks/userCollection";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData, useParams } from "react-router-dom";
 import { addProduct } from "../app/userSlice";
-
+import KitchenIcon from "/public/kitchen.svg"
 function Retsept() {
   const params = useParams();
   const { user } = useSelector((state) => state.user);
@@ -47,7 +47,7 @@ function Retsept() {
               </div>
               <div>
                 <h2 className="mb-5 text-2xl font-bold capitalize flex gap-2">
-                  <img src="/public/kitchen.svg" alt="kitchen icon" />Meal Name: {dataId?.title}
+                  <img src={KitchenIcon} alt="kitchen icon" />Meal Name: {dataId?.title}
                 </h2>
                 <div className="mb-5 flex items-start gap-2">
                   <span className="font-semibold">Ingrediens: </span>
