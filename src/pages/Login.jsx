@@ -28,6 +28,7 @@ function Login() {
       if (userData.email && userData.password) {
         loginUser(userData.email, userData.password);
       } else {
+        
         if (userData.email || userData.password) {
           if (!userData.password) {
             let name = {
@@ -60,14 +61,21 @@ function Login() {
       }
     }
   }, [userData]);
-  console.log(userData);
+
   return (
-    <div className='grid lg:grid-cols-2 grid-cols-1 min-h-screen glass'>
-      <div className="hidden lg:block h-full bg-[url('https://picsum.photos/1000/1800')] bg-cover bg-center"></div>
-      <div className="h-full bg-slate-50 grid place-items-center lg:bg-none bg-[url('https://picsum.photos/1000/1800')] bg-cover bg-center">
-        <div className='card bg-base-100 sm:w-96 shadow-xl p-8'>
+    <div className='grid grid-cols-1 min-h-screen'>
+      <video
+        autoPlay
+        muted
+        loop
+        className="w-full fixed bg-cover place-items-center bg-orange-50 bg-center h-screen object-cover"
+      >
+        <source src="/login.mp4" />
+      </video>
+      <div className="h-full backdrop-blur-sm bg-dark/30 grid place-items-center ">
+        <div className='card backdrop-blur-lg bg-white/30 sm:w-96 w-80 shadow-xl p-8'>
           <Form method='post' className='flex flex-col items-center gap-5'>
-            <h1 className='sm:text-3xl text-2xl font-semibold'>Login</h1>
+            <h1 className='sm:text-3xl text-2xl font-bold'>Login</h1>
             <FormInput type="email" label="email" name="email" placeholder="Enter your email" status={errorInput.email}/>
             <FormInput type="password" label="password" name="password" placeholder="Enter your password" status={errorInput.password} />
 
@@ -96,7 +104,7 @@ function Login() {
           )}
 
           <Link to="/register" className='w-full mt-5 flex justify-between'>
-            <h3>
+            <h3 className='font-semibold'>
               Dont have an Account?
             </h3>
             <span className='font-bold'>Register</span>

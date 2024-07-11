@@ -30,7 +30,7 @@ export const useLogin = () => {
       setisPending(false)
       toast.success(`Welcome ${user.displayName}`)
     } catch (error) {
-      toast.error(error.message)
+      toast.error("Siz hali ro'yxatdan o'tmagansiz")
       setisPending(false)
     }
   };
