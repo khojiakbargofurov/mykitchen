@@ -13,7 +13,7 @@ function TodoList({ data }) {
           <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center ">
             {
               data.map((todo) => (
-                <div key={todo.id} className="card bg-base-100 max-w-96 shadow-xl sm:h-[550px] h-[50px] ">
+                <div key={todo.id} className="card bg-base-100 max-w-96 shadow-xl sm:h-[550px] h-[500px] ">
                   <button onClick={() => {
                     deleteDoc(doc(db, "todos", todo.id))
                       .then(() => {
