@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useCollection } from "../hooks/userCollection";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { addProduct } from "../app/userSlice";
 
 import KitchenIcon from "/public/kitchen.svg"
-import { BookType, CircleDollarSign, Clock, NotebookText, ShoppingBasket } from "lucide-react";
+import { BookType, CircleDollarSign, Clock, Minus, NotebookText, Plus, ShoppingBasket } from "lucide-react";
 import { toast } from "react-hot-toast";
 
 function Retsept() {
@@ -32,9 +32,10 @@ function Retsept() {
     toast.success("Add Retcept ")
     dispatch(addProduct(newProdact));
   };
+
   return (
     <>
-      <main className="align-element">
+      <main className="align-element ">
         <div className="">
           <div className="mb-20">
             <h2 className="my-5 text-2xl font-bold">Recipe details</h2>
@@ -91,24 +92,26 @@ function Retsept() {
                   <p className="mb-5 text-xl">{dataId?.nation} meal</p>
                 </div>
                 <h3 className="mb-2 text-xl font-semibold flex gap-2 items-center"><NotebookText />Method:</h3>
-                <p className="mb-5 text-xl">{dataId?.description}</p>
+                <p className="mb-5 text-xl text-justify pr-5">{dataId?.description}</p>
                 <div className="sm:flex bleck items-center w-full justify-between">
                   <div className="flex items-center gap-2 sm:mb-0 mb-10">
-                    <button
-                      onClick={() => setAmount("increase")}
-                      className="btn btn-secondary"
-                    >
-                      +
-                    </button>
-                    <h3>{productAmount}</h3>
-                    <button
-                      onClick={() => setAmount("decrease")}
-                      className="btn btn-secondary "
-                      disabled={productAmount == 1 ? true : false}
-                    >
-                      -
-                    </button>
-                    <button onClick={addToBag} className="btn btn-seconda">
+                    <div className="flex items-center gap-2 text-center shadow-2xl">
+                      <button
+                        onClick={() => setAmount("increase")}
+                        className="btn btn-square btn-secondary "
+                      >
+                        <Plus />
+                      </button>
+                      <h3 className="font-bold text-4xl w-full px-2 text-center">{productAmount}</h3>
+                      <button
+                        onClick={() => setAmount("decrease")}
+                        className="btn btn-square btn-secondary "
+                        disabled={productAmount == 1 ? true : false}
+                      >
+                        <Minus />
+                      </button>
+                    </div>
+                    <button onClick={addToBag} className="btn btn-secondary">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -124,9 +127,9 @@ function Retsept() {
                       Add to bag
                     </button>
                   </div>
-                  <a className="btn btn-primary mr-5" href="/">
+                  <Link className="btn btn-primary w-24" to="/">
                     Back
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { Trash2 } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -68,7 +68,7 @@ function Cart() {
                       <td>
                         <div className="flex items-center gap-2">
                           <button
-                            className="px-[7px] text-indigo-950 border-indigo-950 border-2 rounded-full py-[2px]"
+                            className=" text-indigo-950 border-indigo-950 border-2 rounded-full "
                             onClick={() =>
                               dispatch(
                                 changeAmount({
@@ -78,13 +78,13 @@ function Cart() {
                               )
                             }
                           >
-                            +
+                            <Plus/>
                           </button>
-                          <h1 className="px-2 text-indigo-950 bg-teal-100 py-1 rounded-md">
+                          <h1 className="px-2 text-indigo-950 bg-teal-100 p-[5px] rounded-full">
                             {product.amount}
                           </h1>
                           <button
-                            className="px-[9px] py-[2px] text-indigo-950 border-indigo-950 border-2 rounded-full"
+                            className=" text-indigo-950 border-indigo-950 border-2 rounded-full"
                             onClick={() =>
                               dispatch(
                                 changeAmount({
@@ -95,7 +95,7 @@ function Cart() {
                             }
                             disabled={product.amount == 1 ? true : false}
                           >
-                            -
+                            <Minus/>
                           </button>
                         </div>
                       </td>
@@ -122,7 +122,7 @@ function Cart() {
             <div>
               <div className="flex justify-between px-2 items-center py-2 mt-5 border-y-2 border-indigo-500">
                 <h4 className="text-lg">Item {calculator.products.length}</h4>
-                <h4>{calculator.price}so'm</h4>
+                <h4>{calculator.price} so'm</h4>
               </div>
               <div className="">
                 <div className="flex justify-between items-center px-2 pt-2">

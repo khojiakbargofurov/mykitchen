@@ -134,16 +134,16 @@ function Create() {
                 </button>
               </div>
               {ingredientError && <p className="text-red-500">{ingredientError}</p>}
-              <h3 className="flex items-center gap-2 py-2">
+              <h3 className="flex gap-2 py-2">
                 Ingredients:
                 <span className="flex text-sm">
                   {IngredientsList.length === 0 ? (
                     <h2>No Ingredients yet</h2>
                   ) : (
-                    <ul className="flex gap-1">
+                    <ul className="flex flex-row flex-wrap  gap-1 ">
                       {IngredientsList.map((ingredient, index) => (
-                        <li key={index} className="relative flex items-center">
-                          <div>{ingredient}</div>
+                        <li key={index} className=" flex max-w-xs">
+                          <div>{ingredient},</div>
                         </li>
                       ))}
                     </ul>
@@ -173,7 +173,7 @@ function Create() {
                 </button>
               </div>
               {imageError && <p className="text-red-500">{imageError}</p>}
-              <h3 className="flex items-center gap-2 py-2">
+              <h3 className="flex flex-wrap items-center gap-2 py-2">
                 Images:
                 <span className="flex text-sm">
                   {imagesList.length === 0 ? (
