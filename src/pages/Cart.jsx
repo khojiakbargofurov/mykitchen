@@ -34,7 +34,7 @@ function Cart() {
       <div className="align-element mt-10">
         <h1 className="text-4xl font-bold pb-4">Shopping Cart</h1>
         <div className="grid lg:grid-cols-2 grid-cols-1">
-          <div className="">
+          <div className="overflow-auto">
             <table className="table">
               <thead>
                 <tr>
@@ -68,7 +68,7 @@ function Cart() {
                       <td>
                         <div className="flex items-center gap-2">
                           <button
-                            className="px-2 text-indigo-950 border-indigo-950 border-2 rounded-full"
+                            className="px-[7px] text-indigo-950 border-indigo-950 border-2 rounded-full py-[2px]"
                             onClick={() =>
                               dispatch(
                                 changeAmount({
@@ -84,7 +84,7 @@ function Cart() {
                             {product.amount}
                           </h1>
                           <button
-                            className="px-2 text-indigo-950 border-indigo-950 border-2 rounded-full"
+                            className="px-[9px] py-[2px] text-indigo-950 border-indigo-950 border-2 rounded-full"
                             onClick={() =>
                               dispatch(
                                 changeAmount({
