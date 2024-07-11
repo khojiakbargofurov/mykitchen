@@ -6,7 +6,6 @@ function dataFromLocalStorage() {
       isAuthState: false,
       calculator: { products: [], price: 0, amount: 0 },
       user: null,
-      Them: "light",
     }
   );
 }
@@ -48,6 +47,7 @@ const userSlice = createSlice({
     },
     removeAll: (state, { payload }) => {
       state.calculator = { products: [], amount: 0, price: 0 };
+      localStorage.removeItem("user");
     },
     removeProduct: (state, { payload }) => {
       state.calculator.products = state.calculator.products.filter((item) => {

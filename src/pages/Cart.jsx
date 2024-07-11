@@ -1,5 +1,6 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeAmount, removeAll, removeProduct } from "../app/userSlice";
@@ -59,7 +60,7 @@ function Cart() {
                         </div>
                       </td>
                       <td>
-                        <div className="sm:w-20 w-16  text-xl">{product.title}</div>
+                        <div className="sm:w-20 w-16 font-bold  text-xl capitalize">{product.title}</div>
                         <div className="text-sm opacity-50">
                           {product.price} so'm
                         </div>
@@ -68,7 +69,7 @@ function Cart() {
                       <td>
                         <div className="flex items-center gap-2">
                           <button
-                            className=" text-indigo-950 border-indigo-950 border-2 rounded-full "
+                            className=" text-white btn-sm  btn btn-square btn-primary "
                             onClick={() =>
                               dispatch(
                                 changeAmount({
@@ -80,11 +81,11 @@ function Cart() {
                           >
                             <Plus/>
                           </button>
-                          <h1 className="px-2 text-indigo-950 bg-teal-100 p-[5px] rounded-full">
+                          <h1 className=" text-indigo-950 btn-sm text-xl bg-teal-100 btn btn-square">
                             {product.amount}
                           </h1>
                           <button
-                            className=" text-indigo-950 border-indigo-950 border-2 rounded-full"
+                            className=" text-white btn-sm btn-secondary  btn-square btn"
                             onClick={() =>
                               dispatch(
                                 changeAmount({
@@ -102,7 +103,7 @@ function Cart() {
                       <th>
                         <button
                           onClick={() => dispatch(removeProduct(product.id))}
-                          className="btn btn-ghost btn-xs"
+                          className="btn btn-ghost btn-sm"
                         >
                           <Trash2 />
                         </button>
@@ -115,9 +116,9 @@ function Cart() {
           </div>
           <div className="lg:mt-1 mt-10 mx-5 md:mr-10">
             <h3 className="text-xl">Order Summary</h3>
-            <div className=" flex items-center gap-5">
+            <div className=" flex items-center gap-5 ">
               <FormInput placeholder="enter promocode" />
-              <button className="btn mt-4 btn-primary">Apply</button>
+              <button className="btn mt-4 btn-primary sm:px-16">Apply</button>
             </div>
             <div>
               <div className="flex justify-between px-2 items-center py-2 mt-5 border-y-2 border-indigo-500">
@@ -137,7 +138,8 @@ function Cart() {
             </div>
             <button
               className="btn w-full mt-2"
-              onClick={() => dispatch(removeAll())}
+              onClick={() => dispatch(removeAll(), toast.success("Thank you for your purchase"))}
+              
             >
               Check out
             </button>
